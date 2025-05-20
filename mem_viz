@@ -1,0 +1,22 @@
+import tkinter as tk
+
+def memory_viz():
+    window = tk.Toplevel()
+    window.title("Memory Management Visualization")
+    window.geometry("600x300")
+
+    tk.Label(window, text="Memory Visualization", font=("Helvetica", 16)).pack(pady=20)
+
+    canvas = tk.Canvas(window, width=500, height=150, bg="white")
+    canvas.pack(pady=10)
+
+    # Dummy visualization (replace with actual usage)
+    partitions = [("Process1", 150), ("Process2", 100), ("Free", 50)]
+    x = 20
+
+    for name, size in partitions:
+        canvas.create_rectangle(x, 50, x+size, 120, fill="lightgreen" if name != "Free" else "lightgray")
+        canvas.create_text((x+(x+size))//2, 85, text=name)
+        x += size + 10
+
+    tk.Label(window, text="(Dummy visualization, replace with real data)").pack(pady=10)
